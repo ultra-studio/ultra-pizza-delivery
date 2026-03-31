@@ -1,0 +1,36 @@
+--[[
+    Ultra Studio - Free Resource
+    Version: v1.0.0
+    © 2026 Ultra Studio. All rights reserved.
+    This project is free to use, but it may not be resold or redistributed without permission.
+    Credits: Ultra Studio
+]]
+
+if not lib.checkDependency('ND_Core', '2.0.0') then
+    return
+end
+
+NDCore = {}
+
+lib.load('@ND_Core.init')
+
+function GetPlayer(id)
+    return NDCore.getPlayer(id)
+end
+
+function DoNotification(src, text, nType)
+    TriggerClientEvent('ox_lib:notify', src, { type = nType, description = text })
+end
+
+function AddMoney(Player, moneyType, amount)
+    Player.addMoney(moneyType, amount)
+end
+
+function handleExploit(id, reason)
+    DropPlayer(id, 'You were dropped from the server.')
+    print(('[^3WARNING^7] Player: ^5%s^7 attempted to exploit Ultra Studio Pizza Job. Reason: %s'):format(id, reason))
+end
+
+AddEventHandler("ND:characterUnloaded", function(src, character)
+    ServerOnLogout(src)
+end)

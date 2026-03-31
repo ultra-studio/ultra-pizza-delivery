@@ -1,2 +1,59 @@
-# ultra-pizza-delivery
-🍕 Ultra Pizza Delivery Script - FiveM Free professional delivery system by Ultra Studio
+# Ultra Studio Pizza Job
+
+> Ultra Studio - Free Resource  
+> Version: v1.0.0  
+> © 2026 Ultra Studio. All rights reserved.
+
+`Ultra Studio Pizza Job` is a free FiveM delivery job resource built for servers that want a lightweight pizza delivery gameplay loop with clean framework bridges and a professional structure.
+
+This resource is free to use, but it cannot be resold or redistributed without permission from Ultra Studio.
+
+## Features
+
+- Structured `client`, `server`, `config`, and `docs` folders
+- Configurable boss NPC, vehicle, payouts, and delivery locations
+- Support-ready bridge files for `QBCore`, `ESX`, and `ND_Core`
+- Delivery route flow with blips, target zones, payment callbacks, and exploit checks
+- Cleaned and documented codebase prepared for public GitHub release
+
+## Installation Steps
+
+1. Download or clone the resource into your server's `resources` folder.
+2. Rename the folder if needed, then ensure the resource name stays consistent with your server setup.
+3. Make sure dependencies are installed:
+   - `ox_lib`
+   - `qb-target`
+   - One supported framework bridge:
+     - `qb-core`
+     - `es_extended`
+     - `ND_Core`
+   - `mysql-async`
+4. Add the resource to your `server.cfg`:
+
+```cfg
+ensure ultra_pizzajob
+```
+
+5. Edit shared settings in `config/shared.lua`.
+6. Edit server-side payouts, vehicle settings, and delivery locations in `config/server.lua`.
+7. Restart the server or run `refresh` followed by `ensure ultra_pizzajob`.
+
+## Usage
+
+- Go to the pizza job boss location.
+- Start a shift from the interaction target.
+- Use the delivery scooter to collect and deliver pizzas.
+- Finish the shift at the boss NPC when all deliveries are complete or when you want to stop.
+
+## Links
+
+- Discord: https://discord.gg/QmgpkZembx
+- GitHub: https://github.com/ultra-studio
+
+## 🎥 Video Tutorial
+
+Coming Soon...
+
+## License
+
+Free for personal use. Commercial use requires permission. See [LICENSE](LICENSE) for full terms.
