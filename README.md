@@ -58,7 +58,12 @@ ensure ultra_pizzajob
 
 ## 🎥 Video Tutorial
 
-Coming Soon...
+<div align="center">
+  <a href="https://youtu.be/MGRkdGkaCGE">
+    <img src="https://img.youtube.com/vi/MGRkdGkaCGE/maxresdefault.jpg" width="80%" />
+  </a>
+</div>
+
 
 ## License
 
