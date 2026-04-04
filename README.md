@@ -1,14 +1,13 @@
 # Ultra Studio Pizza Job
 
 > Ultra Studio - Free Resource  
-> Version: v1.0.0  
-> © 2026 Ultra Studio. All rights reserved.
+> Version: v1.0.1  
+> (c) 2026 Ultra Studio. All rights reserved.
 
 ## 📸 Preview
 <div align="center">
   <img src="https://media.discordapp.net/attachments/1487828118562541729/1488642654052028537/ultra_pizza_job.png?ex=69cd8602&is=69cc3482&hm=7cfa4d52865f326a56522a0a589fe54401d104abe3eeb54ab92e13e8ec5dbdef&=&format=webp&quality=lossless&width=1006&height=561" width="80%" />
 </div>
-
 
 `Ultra Studio Pizza Job` is a free FiveM delivery job resource built for servers that want a lightweight pizza delivery gameplay loop with clean framework bridges and a professional structure.
 
@@ -65,6 +64,16 @@ ensure ultra_pizzajob
 </div>
 
 
+### 🔧 Fixes
+- Fixed error in shared.lua
+- Improved script stability (dependency guards, model hash handling, config string fix)
+
 ## License
 
 Free for personal use. Commercial use requires permission. See [LICENSE](LICENSE) for full terms.
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for release notes.
+
+

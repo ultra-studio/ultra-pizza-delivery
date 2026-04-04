@@ -1,19 +1,26 @@
 --[[
     Ultra Studio - Free Resource
-    Version: v1.0.0
-    © 2026 Ultra Studio. All rights reserved.
+    Version: v1.0.1
+    (c) 2026 Ultra Studio. All rights reserved.
     This project is free to use, but it may not be resold or redistributed without permission.
     Credits: Ultra Studio
 ]]
 
 local ServerConfig = lib.require('config.server')
 
+-- Validate hard dependencies early to avoid runtime errors later.
+if GetResourceState('ox_lib') ~= 'started' then
+    print('[Ultra Pizza Job] ox_lib is required but not started.')
+    return
+end
+
 local playerShifts = {}
 
 -- Spawn the delivery vehicle and place the player directly into it.
 local function createPizzaVehicle(playerSource)
     local spawn = ServerConfig.vehicleSpawn
-    local vehicle = CreateVehicle(ServerConfig.vehicleModel, spawn.x, spawn.y, spawn.z, spawn.w, true, true)
+    -- Convert model name to hash at runtime to keep configs readable and editor-friendly.
+    local vehicle = CreateVehicle(joaat(ServerConfig.vehicleModel), spawn.x, spawn.y, spawn.z, spawn.w, true, true)
     local playerPed = GetPlayerPed(playerSource)
 
     while not DoesEntityExist(vehicle) do
@@ -130,3 +137,4 @@ end)
 function ServerOnLogout(playerSource)
     cleanupShift(playerSource)
 end
+

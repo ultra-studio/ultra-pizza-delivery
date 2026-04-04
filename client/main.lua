@@ -1,12 +1,23 @@
 --[[
     Ultra Studio - Free Resource
-    Version: v1.0.0
-    © 2026 Ultra Studio. All rights reserved.
+    Version: v1.0.1
+    (c) 2026 Ultra Studio. All rights reserved.
     This project is free to use, but it may not be resold or redistributed without permission.
     Credits: Ultra Studio
 ]]
 
 local SharedConfig = lib.require('config.shared')
+
+-- Validate hard dependencies early to avoid runtime errors later.
+if GetResourceState('ox_lib') ~= 'started' then
+    print('[Ultra Pizza Job] ox_lib is required but not started.')
+    return
+end
+
+if GetResourceState('qb-target') ~= 'started' then
+    print('[Ultra Pizza Job] qb-target is required but not started.')
+    return
+end
 
 local state = {
     isHired = false,
@@ -47,7 +58,8 @@ end
 -- Toggle the carry animation and pizza box prop used during deliveries.
 local function setPizzaCarryState(enabled)
     if enabled then
-        local model = `prop_pizza_box_02`
+        -- Use joaat hash to avoid backtick-literal diagnostics in editors.
+        local model = joaat('prop_pizza_box_02')
         local playerCoords = GetEntityCoords(cache.ped)
 
         lib.requestModel(model)
@@ -311,8 +323,9 @@ local function spawnBossPed()
         return
     end
 
-    lib.requestModel(SharedConfig.bossModel)
-    state.bossPed = CreatePed(0, SharedConfig.bossModel, SharedConfig.bossCoords, false, false)
+    local bossModelHash = joaat(SharedConfig.bossModel)
+    lib.requestModel(bossModelHash)
+    state.bossPed = CreatePed(0, bossModelHash, SharedConfig.bossCoords, false, false)
 
     SetEntityAsMissionEntity(state.bossPed, true, true)
     SetPedFleeAttributes(state.bossPed, 0, false)
@@ -323,7 +336,7 @@ local function spawnBossPed()
     lib.requestAnimDict('amb@world_human_leaning@female@wall@back@holding_elbow@idle_a')
     TaskPlayAnim(state.bossPed, 'amb@world_human_leaning@female@wall@back@holding_elbow@idle_a', 'idle_a', 8.0, 1.0, -1, 1, 0, 0, 0, 0)
     RemoveAnimDict('amb@world_human_leaning@female@wall@back@holding_elbow@idle_a')
-    SetModelAsNoLongerNeeded(SharedConfig.bossModel)
+    SetModelAsNoLongerNeeded(bossModelHash)
 
     exports['qb-target']:AddTargetEntity(state.bossPed, {
         options = {
@@ -393,3 +406,4 @@ AddEventHandler('onResourceStop', function(resourceName)
 end)
 
 createBossBlip()
+

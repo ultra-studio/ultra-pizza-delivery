@@ -1,7 +1,7 @@
 --[[
     Ultra Studio - Free Resource
-    Version: v1.0.0
-    © 2026 Ultra Studio. All rights reserved.
+    Version: v1.0.1
+    (c) 2026 Ultra Studio. All rights reserved.
     This project is free to use, but it may not be resold or redistributed without permission.
     Credits: Ultra Studio
 ]]
@@ -33,3 +33,4 @@ end
 AddEventHandler('esx:playerLogout', function(playerId)
     ServerOnLogout(playerId)
 end)
+

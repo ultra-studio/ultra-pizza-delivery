@@ -1,7 +1,7 @@
 --[[
     Ultra Studio - Free Resource
-    Version: v1.0.0
-    © 2026 Ultra Studio. All rights reserved.
+    Version: v1.0.1
+    (c) 2026 Ultra Studio. All rights reserved.
     This project is free to use, but it may not be resold or redistributed without permission.
     Credits: Ultra Studio
 ]]
@@ -12,7 +12,13 @@ lua54 'yes'
 
 author 'Ultra Studio'
 description 'Ultra Studio Pizza Job'
-version '1.0.0'
+version '1.0.1'
+
+dependencies {
+    'ox_lib',
+    'qb-target',
+    'mysql-async',
+}
 
 shared_scripts {
     '@ox_lib/init.lua',

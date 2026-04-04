@@ -1,14 +1,15 @@
 --[[
     Ultra Studio - Free Resource
-    Version: v1.0.0
-    © 2026 Ultra Studio. All rights reserved.
+    Version: v1.0.1
+    (c) 2026 Ultra Studio. All rights reserved.
     This project is free to use, but it may not be resold or redistributed without permission.
     Credits: Ultra Studio
 ]]
 
 return {
     jobName = 'Pizza Job',
-    bossModel = `u_m_y_party_01`,
+    -- Model names are kept as strings to avoid editor/diagnostic issues with backticks.
+    bossModel = 'u_m_y_party_01',
     bossCoords = vec4(538.35, 101.80, 95.54, 164.05),
     deliveryZoneRadius = 1.3,
     interactDistance = 1.5,
@@ -25,7 +26,8 @@ return {
         level = 100.0,
     },
     notifications = {
-        tooFarFromCustomer = 'You are not close enough to the customer''s house.',
+        -- Lua single-quoted strings need an escaped apostrophe.
+        tooFarFromCustomer = 'You are not close enough to the customer\'s house.',
         vehicleSpawnFailed = 'The delivery vehicle could not be spawned.',
         shiftEnded = 'You ended your shift.',
         newDelivery = 'You have a new delivery.',
@@ -41,3 +43,4 @@ return {
         deliverProgress = 'Delivering pizza',
     },
 }
+

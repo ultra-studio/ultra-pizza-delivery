@@ -1,7 +1,7 @@
 --[[
     Ultra Studio - Free Resource
-    Version: v1.0.0
-    © 2026 Ultra Studio. All rights reserved.
+    Version: v1.0.1
+    (c) 2026 Ultra Studio. All rights reserved.
     This project is free to use, but it may not be resold or redistributed without permission.
     Credits: Ultra Studio
 ]]
@@ -38,8 +38,10 @@ return {
         vec3(1245.40, -1626.85, 53.28),
         vec3(315.09, -128.31, 69.98),
     },
-    vehicleModel = `faggio`,
+    -- Vehicle model name kept as a string to avoid diagnostic errors.
+    vehicleModel = 'faggio',
     vehicleSpawn = vec4(535.30, 95.58, 96.32, 159.15),
     exploitDropMessage = 'You were removed from the server for exploiting the pizza job.',
     resourceAccountTag = 'ultra-studio-pizzajob',
 }
+
